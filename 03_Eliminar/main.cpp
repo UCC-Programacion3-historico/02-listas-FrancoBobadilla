@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../Lista/Lista.h"
+#include "../01_Invierte/fnInvierte.h"
 
 using namespace std;
 
@@ -7,20 +8,20 @@ int main() {
     Lista<int> l;
     int n = 0;
     while (n == 0) {
-        cout
-                << "\nSeleccione una opcion:\n "
-                        "1)Agregar valor entero al final de la lista\n "
-                        "2)Agregar valor entero al principio de la lista\n "
-                        "3)Agregar valor entero a la mitad de la lista\n "
-                        "4)Eliminar elemento de la lista\n "
-                        "5)Mostrar valor de la lista\n "
-                        "6)Obtener tamaño de la lista\n "
-                        "7)Mostrar toda la lista\n "
-                        "8)Salir\n ";
+        cout << endl << "Seleccione una opcion:\n "
+                "1)Agregar valor entero al final de la lista\n "
+                "2)Agregar valor entero al principio de la lista\n "
+                "3)Agregar valor entero a la mitad de la lista\n "
+                "4)Eliminar elemento de la lista\n "
+                "5)Mostrar valor de la lista\n "
+                "6)Obtener tamaño de la lista\n "
+                "7)Mostrar toda la lista\n "
+                "8)Invertir lista\n "
+                "9)Salir\n ";
         cin >> n;
         switch (n) {
             case 1: {
-                cout << "\nIngrese enteros a agregar (ingrese -1 para finalizar): " << endl;
+                cout << endl << "Ingrese enteros a agregar (ingrese -1 para finalizar): " << endl;
                 while (n != -1) {
                     cin >> n;
                     if (n != -1) l.insertarUltimo(n);
@@ -29,7 +30,7 @@ int main() {
                 break;
             }
             case 2: {
-                cout << "\nIngrese enteros a agregar (ingrese -1 para finalizar): " << endl;
+                cout << endl << "Ingrese enteros a agregar (ingrese -1 para finalizar): " << endl;
                 while (n != -1) {
                     cin >> n;
                     if (n != -1) l.insertarPrimero(n);
@@ -38,7 +39,7 @@ int main() {
                 break;
             }
             case 3: {
-                cout << "\nIngrese enteros a agregar (ingrese -1 para finalizar): " << endl;
+                cout << endl << "Ingrese enteros a agregar (ingrese -1 para finalizar): " << endl;
                 while (n != -1) {
                     cin >> n;
                     if (n != -1) l.insertar(l.getTamanio() / 2, n);
@@ -47,30 +48,30 @@ int main() {
                 break;
             }
             case 4: {
-                cout << "\nIngrese posicion del elemento a borrar: " << endl;
+                cout << endl << "Ingrese posicion del elemento a borrar: " << endl;
                 cin >> n;
                 try {
                     l.remover(n);
                     cout << endl << "Elemento removido" << endl;
                 } catch (int e) {
-                    cout << "\nERROR " << e << ": Fuera de rango" << endl;
+                    cout << endl << "ERROR " << e << ": Fuera de rango" << endl;
                 }
                 n = 0;
                 break;
             }
             case 5: {
-                cout << "\nIngrese posicion del elemento a mostrar: " << endl;
+                cout << endl << "Ingrese posicion del elemento a mostrar: " << endl;
                 cin >> n;
                 try {
-                    cout << "\n Elemento " << n << ": " << l.getDato(n) << endl;
+                    cout << endl << " Elemento " << n << ": " << l.getDato(n) << endl;
                 } catch (int e) {
-                    cout << "\nERROR " << e << ": Fuera de rango" << endl;
+                    cout << endl << "ERROR " << e << ": Fuera de rango" << endl;
                 }
                 n = 0;
                 break;
             }
             case 6: {
-                cout << "\nTamaño de la lista: " << l.getTamanio() << endl;
+                cout << endl << "Tamaño de la lista: " << l.getTamanio() << endl;
                 n = 0;
                 break;
             }
@@ -86,6 +87,12 @@ int main() {
                 break;
             }
             case 8: {
+                fnInvierte(&l);
+                cout << endl << "Lista invertida" << endl;
+                n = 0;
+                break;
+            }
+            case 9: {
                 n = 1;
                 break;
             }
