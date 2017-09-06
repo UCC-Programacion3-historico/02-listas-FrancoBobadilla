@@ -120,7 +120,7 @@ void Lista<T>::insertarUltimo(T dato) {
 template<class T>
 void Lista<T>::remover(int pos) {
     if (pos == 0) {
-        inicio = NULL;
+        inicio = inicio->getNext();
         return;
     }
 
