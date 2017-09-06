@@ -6,7 +6,7 @@ using namespace std;
 int main() {
     Lista<int> l;
     int n = 0;
-    while (n != 5) {
+    while (n == 0) {
         cout
                 << "\nSeleccione una opcion:\n "
                         "1)Agregar valor entero al final de la lista\n "
@@ -86,7 +86,7 @@ int main() {
                 break;
             }
             case 8: {
-                n = -1;
+                n = 1;
                 break;
             }
             default: {
