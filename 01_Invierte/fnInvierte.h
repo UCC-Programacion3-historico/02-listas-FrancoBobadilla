@@ -3,10 +3,6 @@
 #ifndef FNINVIERTE_H
 #define FNINVIERTE_H
 
-#include <iostream>
-
-using namespace std;
-
 template<class T>
 void fnInvierte(Lista<T> *lis);
 
