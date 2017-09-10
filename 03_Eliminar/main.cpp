@@ -9,6 +9,7 @@ bool insertAfter(int, int, int, Lista<int> *);
 int main() {
     Lista<int> l;
     int n = 0;
+    cout<<endl<<"Lista de enteros simplemente enlazada, no circular"<<endl;
     while (n == 0) {
         cout << endl << "Seleccione una opcion:\n "
                 "1)Agregar valor entero al final de la lista\n "
@@ -20,7 +21,8 @@ int main() {
                 "7)Mostrar toda la lista\n "
                 "8)Invertir lista\n "
                 "9)InsertAfter\n "
-                "10)Salir\n ";
+                "10)Vaciar lista\n "
+                "11)Salir\n ";
         cin >> n;
         switch (n) {
             case 1: {
@@ -97,11 +99,11 @@ int main() {
             }
             case 9: {
                 int oldValue, newValue;
-                cout << endl << "Ingrese nuevo valor a insertar:"<<endl;
+                cout << endl << "Ingrese nuevo valor a insertar:" << endl;
                 cin >> newValue;
-                cout << endl << "Ingrese valor a contar: "<<endl;
+                cout << endl << "Ingrese valor a contar: " << endl;
                 cin >> oldValue;
-                cout << endl << "Ingrese la cantidad de elementos a contar: "<<endl;
+                cout << endl << "Ingrese la cantidad de elementos a contar: " << endl;
                 cin >> n;
                 if (insertAfter(oldValue, n, newValue, &l))
                     cout << endl << "Nuevo valor insertado" << endl;
@@ -111,10 +113,17 @@ int main() {
                 break;
             }
             case 10: {
+                l.vaciar();
+                cout<<endl<<"Lista vacaida"<<endl;
+                n = 0;
+                break;
+            }
+            case 11: {
                 n = 1;
                 break;
             }
             default: {
+                cout<<endl<<"Opcion invalida"<<endl;
                 n = 0;
                 break;
             }
@@ -125,14 +134,15 @@ int main() {
 
 bool insertAfter(int oldValue, int n, int newValue, Lista<int> *l) {
     int fin = l->getTamanio();
-    for (int i = 0; i < fin || n == 0; i++) {
-        if (l->getDato(i) == oldValue) {
-            n--;
+    if (fin >= n)
+        for (int i = 0; i <= fin; i++) {
+            if (n == 0) {
+                l->insertar(i, newValue);
+                return true;
+            }
+            if (l->getDato(i) == oldValue) {
+                n--;
+            }
         }
-        if (n == 0) {
-            l->insertar(i, newValue);
-            return true;
-        }
-    }
     return false;
 }
